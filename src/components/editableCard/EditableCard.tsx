@@ -1,35 +1,35 @@
-"use client";
+'use client'
 
-import { FC, useState } from "react";
-import styles from "./EditableCard.module.css";
-import { TEditableCardProps } from "../../types/card";
-import { Switch, Radio, Button, ConfigProvider } from "antd";
-import { EDITABLE_CARD_TITLE } from "../../constants/editableCardConsts";
-import { GLOBAL_COLORS } from "../../constants/stylesConsts";
-import MultiCheckGroup from "./MultiCheckRadioGroup";
+import { FC, useState } from 'react'
+import styles from './EditableCard.module.css'
+import { TEditableCardProps } from '../../types/card'
+import { Switch, Radio, Button, ConfigProvider } from 'antd'
+import { EDITABLE_CARD_TITLE } from '../../constants/editableCardConsts'
+import { GLOBAL_COLORS } from '../../constants/stylesConsts'
+import MultiCheckGroup from './MultiCheckRadioGroup'
 
 export const radioBtnStyle = (checked: boolean) => {
   return {
     fontSize: 16,
-    color: checked ? "#000000" : GLOBAL_COLORS.text_lighter_grey,
-  };
-};
+    color: checked ? '#000000' : GLOBAL_COLORS.text_lighter_grey,
+  }
+}
 
 const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
   const [isProficientState, setIsProficientState] =
-    useState<boolean>(isProficient);
-  const [tools, setTools] = useState<string>(toolsUsed);
-  const [isEditable, setIsEditable] = useState<boolean>(true);
+    useState<boolean>(isProficient)
+  const [tools, setTools] = useState<string>(toolsUsed)
+  const [isEditable, setIsEditable] = useState<boolean>(true)
 
   const onSwitchChange = (checked: boolean) => {
-    setIsEditable(checked);
+    setIsEditable(checked)
     if (!checked) {
     }
-  };
+  }
 
   const onProficiencyChange = (e: any) => {
-    setIsProficientState(e.target.value);
-  };
+    setIsProficientState(e.target.value)
+  }
 
   return (
     <div className={styles.editableCardContainer}>
@@ -115,7 +115,7 @@ const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
             size="large"
             type="primary"
             onClick={() => {
-              console.log(tools);
+              console.log(tools)
             }}
           >
             Process
@@ -123,7 +123,7 @@ const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
         </div>
       </ConfigProvider>
     </div>
-  );
-};
+  )
+}
 
-export default EditableCard;
+export default EditableCard

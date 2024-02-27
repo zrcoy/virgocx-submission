@@ -1,6 +1,6 @@
-import styles from "./page.module.css";
-import data from "../Data/mock";
-import EditableCard from "../components/editableCard/EditableCard";
+import styles from './page.module.css'
+import data from '../Data/mock'
+import EditableCard from '../components/editableCard/EditableCard'
 
 export default function Page() {
   return (
@@ -10,5 +10,5 @@ export default function Page() {
         toolsUsed={data.toolsUsed}
       />
     </main>
-  );
+  )
 }

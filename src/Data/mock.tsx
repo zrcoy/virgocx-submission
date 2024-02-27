@@ -8,7 +8,7 @@ const data = {
    * 3:	Webpack
    * 4:	Other
    */
-  toolsUsed: "0,2,3,4",
-};
+  toolsUsed: '0,2,3,4',
+}
 
-export default data;
+export default data

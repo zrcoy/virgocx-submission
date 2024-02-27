@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { Radio } from "antd";
-import { GLOBAL_COLORS } from "../../constants/stylesConsts";
-import { TCustomizedRadioBtnProps } from "../../types/card";
+import React, { FC } from 'react'
+import { Radio } from 'antd'
+import { GLOBAL_COLORS } from '../../constants/stylesConsts'
+import { TCustomizedRadioBtnProps } from '../../types/card'
 
 const CustomizedRadioBtn: FC<TCustomizedRadioBtnProps> = ({
   key,
@@ -20,12 +20,12 @@ const CustomizedRadioBtn: FC<TCustomizedRadioBtnProps> = ({
       onClick={onClick}
       style={{
         fontSize: 16,
-        color: checked ? "#000000" : GLOBAL_COLORS.text_lighter_grey,
+        color: checked ? '#000000' : GLOBAL_COLORS.text_lighter_grey,
       }}
     >
       {label}
     </Radio>
-  );
-};
+  )
+}
 
-export default CustomizedRadioBtn;
+export default CustomizedRadioBtn

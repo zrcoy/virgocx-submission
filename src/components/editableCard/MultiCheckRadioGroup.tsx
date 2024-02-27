@@ -1,44 +1,44 @@
-import React, { FC, useEffect, useState } from "react";
-import CustomizedRadioBtn from "./CustomizedRadioBtn";
-import { TMultiCheckRadioGroupProps } from "../../types/card";
-import { Radio } from "antd";
-import { radioBtnStyle } from "./EditableCard";
+import React, { FC, useEffect, useState } from 'react'
+import CustomizedRadioBtn from './CustomizedRadioBtn'
+import { TMultiCheckRadioGroupProps } from '../../types/card'
+import { Radio } from 'antd'
+import { radioBtnStyle } from './EditableCard'
 
 const MultiCheckRadioGroup: FC<TMultiCheckRadioGroupProps> = ({
   isEditable,
   toolsUsed,
   setTools,
 }) => {
-  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedValues, setSelectedValues] = useState([])
 
   const handleRadioClick = (e) => {
-    const value = e.target.value;
+    const value = e.target.value
     const updatedValues = selectedValues.includes(value)
       ? selectedValues.filter((item) => item !== value)
-      : [...selectedValues, value];
+      : [...selectedValues, value]
 
-    setSelectedValues(updatedValues.sort());
+    setSelectedValues(updatedValues.sort())
     // update parent state
-    setTools(updatedValues.join(","));
-  };
+    setTools(updatedValues.join(','))
+  }
 
   const radioOptions = [
-    { label: "Redux", value: "0" },
-    { label: "Lodash", value: "1" },
-    { label: "Ant Design", value: "2" },
-    { label: "Webpack", value: "3" },
-    { label: "Other", value: "4" },
-  ];
+    { label: 'Redux', value: '0' },
+    { label: 'Lodash', value: '1' },
+    { label: 'Ant Design', value: '2' },
+    { label: 'Webpack', value: '3' },
+    { label: 'Other', value: '4' },
+  ]
 
   // initial state for toolsUsed
   useEffect(() => {
     if (toolsUsed) {
-      setSelectedValues(toolsUsed.split(","));
+      setSelectedValues(toolsUsed.split(','))
     }
-  }, []);
+  }, [])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
       {radioOptions.map((option) => (
         <Radio
           disabled={!isEditable}
@@ -52,7 +52,7 @@ const MultiCheckRadioGroup: FC<TMultiCheckRadioGroupProps> = ({
         </Radio>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default MultiCheckRadioGroup;
+export default MultiCheckRadioGroup
