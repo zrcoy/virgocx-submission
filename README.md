@@ -1,27 +1,31 @@
 # VirgoCX Submission
 
-## Setup Scaffolding
+- [VirgoCX Submission](#virgocx-submission)
+  - [Scaffolding Summary](#scaffolding-summary)
+  - [Node version](#node-version)
+  - [Dependency installation](#dependency-installation)
+  - [Commit](#commit)
 
-### Summary
+## Scaffolding Summary
 
 1. Engine Locking: The project is set to be using 'npm' only as package manager, and have some version requirement for node and npm, this is for the consistency reason.
 2. Consistent VSCode Settings: .vscode would overwrite your vscode settings in order for developers have consistent coding environment.
 3. Prettier & ESlint: style consistency.
 4. Commitlint & Husky Hooks: commit message consistency
 
-### Node version
+## Node version
 
-The project is using Node `20.9.0` and controlling the node version using `nvm`.
+The project is using Node `18.0.0` and controlling the node version using `nvm`.
 Please refer to the following to make sure the correct Node version is in use.
 
 1. Run `nvm install 20.9.0` to install the correct `node` version.
 2. Run `nvm use` to switch to the correct version
 
-### Dependency installation
+## Dependency installation
 
 Run `npm i`
 
-### Commit
+## Commit
 
 For activity manage and tracking purpose, we use commit-lint to built the commit rules for the commit message.
 
