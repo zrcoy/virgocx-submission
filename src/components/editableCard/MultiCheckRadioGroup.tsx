@@ -1,8 +1,6 @@
-import React, { FC, useEffect, useState } from 'react'
-import CustomizedRadioBtn from './CustomizedRadioBtn'
-import { TMultiCheckRadioGroupProps } from '../../types/card'
 import { Radio } from 'antd'
-import { radioBtnStyle } from './EditableCard'
+import { FC, useEffect, useState } from 'react'
+import { TMultiCheckRadioGroupProps } from '../../types/card'
 
 const MultiCheckRadioGroup: FC<TMultiCheckRadioGroupProps> = ({
   isEditable,
@@ -42,7 +40,7 @@ const MultiCheckRadioGroup: FC<TMultiCheckRadioGroupProps> = ({
       {radioOptions.map((option) => (
         <Radio
           disabled={!isEditable}
-          style={radioBtnStyle(selectedValues.includes(option.value))}
+          style={{ fontSize: 16 }}
           key={option.value}
           value={option.value}
           checked={selectedValues.includes(option.value)}

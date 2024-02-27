@@ -1,31 +1,18 @@
 'use client'
 
+import { Button, ConfigProvider, Radio, Switch } from 'antd'
 import { FC, useState } from 'react'
-import styles from './EditableCard.module.css'
-import { TEditableCardProps } from '../../types/card'
-import { Switch, Radio, Button, ConfigProvider } from 'antd'
 import { EDITABLE_CARD_TITLE } from '../../constants/editableCardConsts'
 import { GLOBAL_COLORS } from '../../constants/stylesConsts'
+import { TEditableCardProps } from '../../types/card'
+import styles from './EditableCard.module.css'
 import MultiCheckGroup from './MultiCheckRadioGroup'
-
-export const radioBtnStyle = (checked: boolean) => {
-  return {
-    fontSize: 16,
-    color: checked ? '#000000' : GLOBAL_COLORS.text_lighter_grey,
-  }
-}
 
 const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
   const [isProficientState, setIsProficientState] =
     useState<boolean>(isProficient)
   const [tools, setTools] = useState<string>(toolsUsed)
   const [isEditable, setIsEditable] = useState<boolean>(true)
-
-  const onSwitchChange = (checked: boolean) => {
-    setIsEditable(checked)
-    if (!checked) {
-    }
-  }
 
   const onProficiencyChange = (e: any) => {
     setIsProficientState(e.target.value)
@@ -41,7 +28,7 @@ const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
         >
           Editable
         </div>
-        <Switch defaultChecked onChange={onSwitchChange} />
+        <Switch defaultChecked onChange={(e) => setIsEditable(e)} />
       </div>
 
       {/* proficient section */}
@@ -54,12 +41,13 @@ const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
           onChange={onProficiencyChange}
           value={isProficientState}
           size="large"
+          buttonStyle="solid"
         >
           <Radio
             disabled={!isEditable}
             value={false}
             checked={!isProficientState}
-            style={radioBtnStyle(!isProficientState)}
+            style={{ fontSize: 16 }}
           >
             No
           </Radio>
@@ -67,7 +55,7 @@ const EditableCard: FC<TEditableCardProps> = ({ isProficient, toolsUsed }) => {
             disabled={!isEditable}
             value={true}
             checked={isProficientState}
-            style={radioBtnStyle(isProficientState)}
+            style={{ fontSize: 16 }}
           >
             Yes
           </Radio>
